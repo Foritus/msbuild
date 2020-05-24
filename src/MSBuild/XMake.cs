@@ -633,7 +633,7 @@ namespace Microsoft.Build.CommandLine
                         // Operating systems prevent processes from raising their priority higher than the process that started them,
                         // so if, for example, someone has started us with "ionice -n20" on Linux, we don't want to try and raise our
                         // priority from "Idle" to "BelowNormal" as that will throw an error.
-                        if (Process.GetCurrentProcess().PriorityClass > priority)
+                        if (Process.GetCurrentProcess().PriorityClass != ProcessPriorityClass.Idle)
                         {
                             Process.GetCurrentProcess().PriorityClass = priority;
                         }
