@@ -630,7 +630,7 @@ namespace Microsoft.Build.CommandLine
                     if (lowPriority)
                     {
                         ProcessPriorityClass priority = ProcessPriorityClass.BelowNormal;
-                        // Operating systems prevent processes from raising their priority higher than the process that started us,
+                        // Operating systems prevent processes from raising their priority higher than the process that started them,
                         // so if, for example, someone has started us with "ionice -n20" on Linux, we don't want to try and raise our
                         // priority from "Idle" to "BelowNormal" as that will throw an error.
                         if (Process.GetCurrentProcess().PriorityClass > priority)
